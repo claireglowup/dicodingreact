@@ -1,14 +1,17 @@
 /** @format */
 
-import fa from "./fa.png";
-import "./App.css";
+import CoverItem from "./components/CoverItem";
+import { getData } from "./utils/data";
 
 function App() {
+  const dataBoard = getData();
+
   return (
-    <>
-      <h1>HELLO WORLD</h1>
-      <img src={fa} alt="fa" />
-    </>
+    <div className="list-item">
+      {dataBoard.map((item) => (
+        <CoverItem imageUrl={item.imageUrl} size={item.size} boardName={item.boardName} key={item.id} />
+      ))}
+    </div>
   );
 }
 

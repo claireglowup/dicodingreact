@@ -2,8 +2,8 @@
 
 const ItemImage = ({ imageUrl }) => {
   return (
-    <div className="item_image">
-      <img src={imageUrl} alt="image item" />
+    <div className="item-image">
+      <img src={imageUrl} alt="image item" height={300} />
     </div>
   );
 };
