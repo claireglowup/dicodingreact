@@ -3,10 +3,3 @@
 * {
   font-family: "Inter", sans-serif;
 }
-
-.list-item {
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
