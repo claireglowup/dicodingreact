@@ -11,8 +11,30 @@ class MyComponent extends React.Component {
     };
   }
 
+  onIncreaseHandler = () => {
+    this.setState((previousState) => {
+      return {
+        count: previousState.count + 1,
+      };
+    });
+  };
+
+  onResetHandler = () => {
+    this.setState(() => {
+      return {
+        count: 0,
+      };
+    });
+  };
+
   render() {
-    return <h1>Halo bang {this.state.count}</h1>;
+    return (
+      <div className="cover-counter">
+        <button onClick={this.onResetHandler}>reset</button>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.onIncreaseHandler}>Increase</button>
+      </div>
+    );
   }
 }
 

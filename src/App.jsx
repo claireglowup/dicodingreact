@@ -1,15 +1,15 @@
 /** @format */
 
 import CoverItem from "./components/CoverItem";
+import FormAddProduct from "./components/FormAddProduct";
 import { getData } from "./utils/data";
-import MyComponent from "./components/ClassComponent";
 
 function App() {
   const dataBoard = getData();
 
   return (
     <div className="list-item">
-      <MyComponent name="jono" />
+      <FormAddProduct />
       {dataBoard.map((item) => (
         <CoverItem imageUrl={item.imageUrl} size={item.size} boardName={item.boardName} key={item.id} />
       ))}
