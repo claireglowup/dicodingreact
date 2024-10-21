@@ -33,7 +33,7 @@ class FormComponent extends React.Component {
           </div>
           <textarea rows={10} />
           <button type="submit">
-            <span>Buat</span>
+            <span>Buat Catatan</span>
           </button>
         </form>
       </div>
