@@ -10,7 +10,7 @@
 
 .container-form p {
   margin-top: -20px;
-  font-size: 10px;
+  font-size: 12px;
   margin-bottom: 20px;
 }
 
@@ -20,27 +20,28 @@ form {
   gap: 12px;
 }
 
-form .judul-catatan {
+form .title-catatan {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-form .judul-catatan #judul {
+form .title-catatan #title {
   flex: 1;
   height: 30px;
   padding-left: 10px;
   transition: border-color 0.3s;
 }
 
-form .judul-catatan .beRed:focus {
+form .title-catatan .beRed:focus {
   color: red;
   border-color: red;
   outline: none;
 }
 
-form .judul-catatan p {
+form .title-catatan p {
   margin-top: 10px;
+  font-size: 12px;
 }
 
 form textarea {
@@ -80,6 +81,7 @@ form button:hover::before {
 
 form button:hover {
   color: white;
+  border: 2px solid white;
 }
 
 form button span {

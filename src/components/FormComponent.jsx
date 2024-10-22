@@ -9,16 +9,32 @@ class FormComponent extends React.Component {
 
     this.state = {
       charLeft: 50,
-      judul: "",
+      title: "",
+      body: "",
+      archived: false,
+      createdAt: "",
     };
   }
 
-  onInputJudul = (event) => {
+  onInputTitle = (event) => {
     this.setState(() => {
       return {
-        judul: event.target.value,
+        title: event.target.value,
       };
     });
+  };
+
+  onInputBody = (event) => {
+    this.setState(() => {
+      return {
+        body: event.target.value,
+      };
+    });
+  };
+
+  onSubmitEventHandler = (event) => {
+    event.preventDefault();
+    this.props.addNotes(this.state);
   };
 
   render() {
@@ -26,12 +42,30 @@ class FormComponent extends React.Component {
       <div className="container-form">
         <h1>CatatanMu📒</h1>
         <p>made with love for dicoding</p>
-        <form>
-          <div className="judul-catatan">
-            <input className={this.state.judul.length === this.state.charLeft ? "beRed" : ""} type="text" placeholder="judul catatan..." id="judul" onChange={this.onInputJudul} value={this.state.judul} maxLength={this.state.charLeft} />
-            <p>Sisa Karakter : {this.state.charLeft - this.state.judul.length}</p>
+        <form onSubmit={this.onSubmitEventHandler}>
+          <div className="title-catatan">
+            <input
+              className={
+                this.state.title.length === this.state.charLeft ? "beRed" : ""
+              }
+              type="text"
+              placeholder="title catatan..."
+              id="title"
+              onChange={this.onInputTitle}
+              value={this.state.title}
+              maxLength={this.state.charLeft}
+            />
+            <p>
+              Sisa Karakter : {this.state.charLeft - this.state.title.length}
+            </p>
           </div>
-          <textarea rows={10} />
+          <textarea
+            rows={10}
+            placeholder="isi catatan..."
+            id="body"
+            onChange={this.onInputBody}
+            value={this.state.body}
+          />
           <button type="submit">
             <span>Buat Catatan</span>
           </button>

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Copyright 2024.</p>
+      <p style={{ textAlign: "center" }}> © 2024.</p>
     </div>
   );
 };
