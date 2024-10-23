@@ -1,0 +1,65 @@
+.list-notes {
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.header-list {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.notes-item {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  width: 500px;
+}
+
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.5s;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Mulai dari luar kiri */
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+button:hover::before {
+  left: 0;
+  color: white;
+}
+
+button:hover {
+  color: white;
+  border: 2px solid white;
+}
+
+button span {
+  position: relative;
+  z-index: 1;
+}

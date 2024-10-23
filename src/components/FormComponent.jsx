@@ -41,24 +41,25 @@ class FormComponent extends React.Component {
     return (
       <div className="container-form">
         <h1>CatatanMu📒</h1>
-        <p>made with love for dicoding</p>
+        <div className="title-catatan">
+          <p>made with love for dicoding</p>
+          <p>Sisa Karakter : {this.state.charLeft - this.state.title.length}</p>
+        </div>
+
         <form onSubmit={this.onSubmitEventHandler}>
-          <div className="title-catatan">
-            <input
-              className={
-                this.state.title.length === this.state.charLeft ? "beRed" : ""
-              }
-              type="text"
-              placeholder="title catatan..."
-              id="title"
-              onChange={this.onInputTitle}
-              value={this.state.title}
-              maxLength={this.state.charLeft}
-            />
-            <p>
-              Sisa Karakter : {this.state.charLeft - this.state.title.length}
-            </p>
-          </div>
+          <input
+            className={
+              this.state.title.length === this.state.charLeft ? "beRed" : ""
+            }
+            type="text"
+            placeholder=" catatan..."
+            id="title"
+            onChange={this.onInputTitle}
+            value={this.state.title}
+            maxLength={this.state.charLeft}
+            required
+          />
+
           <textarea
             rows={10}
             placeholder="isi catatan..."

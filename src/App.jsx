@@ -3,7 +3,7 @@ import React from "react";
 import Footer from "./components/Footer";
 import FormComponent from "./components/FormComponent";
 import NotesList from "./components/NotesList";
-import { getInitialData, showFormattedDate } from "./utils/data";
+import { getInitialData } from "./utils/data";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class App extends React.Component {
             title,
             body,
             archived: false,
-            createdAt: showFormattedDate(new Date()),
+            createdAt: +new Date(),
           },
         ],
       };
@@ -36,6 +36,19 @@ class App extends React.Component {
     this.setState({ notes });
   };
 
+  onArchiveNotesHandler = (id) => {
+    const updatedNotes = this.state.notes.map((note) => {
+      if (note.id === id && note.archived === false) {
+        return { ...note, archived: true };
+      } else if (note.id === id && note.archived === true) {
+        return { ...note, archived: false };
+      }
+      return note;
+    });
+
+    this.setState({ notes: updatedNotes });
+  };
+
   render() {
     return (
       <>
@@ -43,6 +56,7 @@ class App extends React.Component {
         <NotesList
           notes={this.state.notes}
           onDelete={this.onDeleteNotesHandler}
+          onArchive={this.onArchiveNotesHandler}
         />
         <Footer />
       </>

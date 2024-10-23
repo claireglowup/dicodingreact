@@ -17,31 +17,29 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-form .title-catatan {
-  display: flex;
-  justify-content: space-between;
   gap: 10px;
 }
 
-form .title-catatan #title {
+.title-catatan {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-catatan p {
+  font-size: 12px;
+}
+
+#title {
   flex: 1;
   height: 30px;
-  padding-left: 10px;
+  padding: 10px;
   transition: border-color 0.3s;
 }
 
-form .title-catatan .beRed:focus {
+form .beRed:focus {
   color: red;
   border-color: red;
   outline: none;
-}
-
-form .title-catatan p {
-  margin-top: 10px;
-  font-size: 12px;
 }
 
 form textarea {
