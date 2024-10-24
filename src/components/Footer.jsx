@@ -1,8 +1,10 @@
+import "../styles/footer.css";
+
 const Footer = () => {
   return (
-    <div className="footer">
-      <p style={{ textAlign: "center" }}> © 2024.</p>
-    </div>
+    <footer className="footer">
+      <p> © 2024. riky fahrian</p>
+    </footer>
   );
 };
 

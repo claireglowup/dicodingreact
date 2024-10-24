@@ -1,7 +1,7 @@
 .list-notes {
   display: flex;
   padding: 20px;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -18,9 +18,14 @@
   width: 500px;
 }
 
+.notes-item p {
+  margin-top: 10px;
+}
+
 .button-group {
+  margin-top: 30px;
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 button {
