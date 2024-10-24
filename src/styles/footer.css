@@ -1,0 +1,46 @@
+.footer {
+  margin: auto;
+  margin-block: 100px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  width: 300px;
+  cursor: pointer;
+  transition: color 0.5s;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.footer p {
+  text-align: center;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.footer:hover::before {
+  left: 0;
+  color: white;
+}
+
+.footer:hover {
+  color: black;
+}
+
+.footer p {
+  position: relative;
+  z-index: 1;
+}
