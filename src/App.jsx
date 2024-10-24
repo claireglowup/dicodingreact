@@ -11,6 +11,7 @@ class App extends React.Component {
 
     this.state = {
       notes: getInitialData(),
+      searchNotes: [],
     };
   }
 
@@ -48,13 +49,18 @@ class App extends React.Component {
   };
 
   onSearchNotes = (title) => {
-    const searchNotes = this.state.notes.map((note) => {
-      if (note.title.includes(title)) {
-        return { ...note };
-      }
-    });
+    if (title.length != 0) {
+      const filteredNotes = this.state.notes.filter((note) =>
+        note.title.toLowerCase().startsWith(title.toLowerCase())
+      );
 
-    this.setState({ notes: searchNotes });
+      this.setState({
+        searchNotes: filteredNotes.length > 0 ? filteredNotes : [],
+      });
+      return;
+    }
+
+    this.setState({ searchNotes: [] });
   };
 
   render() {
@@ -62,10 +68,14 @@ class App extends React.Component {
       <>
         <FormComponent addNotes={this.onAddNotesHandle} />
         <NotesList
-          notes={this.state.notes}
+          notes={
+            this.state.searchNotes.length != 0
+              ? this.state.searchNotes
+              : this.state.notes
+          }
           onDelete={this.onDeleteNotesHandler}
           onArchive={this.onArchiveNotesHandler}
-          onSerachNotes={this.onSearchNotes}
+          onSearchNotes={this.onSearchNotes}
         />
         <Footer />
       </>
