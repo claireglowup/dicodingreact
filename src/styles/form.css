@@ -14,6 +14,17 @@
   margin-bottom: 20px;
 }
 
+.container-form .search-notes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-form .search-notes .search-input {
+  height: 30px;
+  align-self: center;
+  padding-left: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;

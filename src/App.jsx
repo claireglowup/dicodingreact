@@ -66,7 +66,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <FormComponent addNotes={this.onAddNotesHandle} />
+        <FormComponent
+          addNotes={this.onAddNotesHandle}
+          onSearchNotes={this.onSearchNotes}
+        />
         <NotesList
           notes={
             this.state.searchNotes.length != 0
@@ -75,7 +78,6 @@ class App extends React.Component {
           }
           onDelete={this.onDeleteNotesHandler}
           onArchive={this.onArchiveNotesHandler}
-          onSearchNotes={this.onSearchNotes}
         />
         <Footer />
       </>
