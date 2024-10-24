@@ -42,7 +42,7 @@ class FormComponent extends React.Component {
       <div className="container-form">
         <h1>CatatanMu📒</h1>
         <div className="title-catatan">
-          <p>made with love for dicoding</p>
+          <p>made with ❤ for dicoding</p>
           <p>Sisa Karakter : {this.state.charLeft - this.state.title.length}</p>
         </div>
 

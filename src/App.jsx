@@ -38,15 +38,23 @@ class App extends React.Component {
 
   onArchiveNotesHandler = (id) => {
     const updatedNotes = this.state.notes.map((note) => {
-      if (note.id === id && note.archived === false) {
-        return { ...note, archived: true };
-      } else if (note.id === id && note.archived === true) {
-        return { ...note, archived: false };
+      if (note.id === id) {
+        return { ...note, archived: !note.archived };
       }
       return note;
     });
 
     this.setState({ notes: updatedNotes });
+  };
+
+  onSearchNotes = (title) => {
+    const searchNotes = this.state.notes.map((note) => {
+      if (note.title.includes(title)) {
+        return { ...note };
+      }
+    });
+
+    this.setState({ notes: searchNotes });
   };
 
   render() {
@@ -57,6 +65,7 @@ class App extends React.Component {
           notes={this.state.notes}
           onDelete={this.onDeleteNotesHandler}
           onArchive={this.onArchiveNotesHandler}
+          onSerachNotes={this.onSearchNotes}
         />
         <Footer />
       </>

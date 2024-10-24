@@ -1,7 +1,7 @@
 import NotesItem from "./NotesItem";
 import "../styles/item.css";
 
-const NotesList = ({ notes, onDelete, onArchive }) => {
+const NotesList = ({ notes, onDelete, onArchive, onSearhNotes }) => {
   const activeNotes = notes.filter((note) => !note.archived);
   const archivedNotes = notes.filter((note) => note.archived);
 
