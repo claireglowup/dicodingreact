@@ -57,7 +57,7 @@ class FormComponent extends React.Component {
             placeholder="cari catatan                        🔎"
           />
         </div>
-
+        <p className="warning-notfound">{this.props.warningNotFound}</p>
         <div className="title-catatan">
           <p>made with ❤ for dicoding</p>
           <p>Sisa Karakter : {this.state.charLeft - this.state.title.length}</p>

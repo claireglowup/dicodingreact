@@ -13,6 +13,11 @@
   margin-bottom: 20px;
 }
 
+.container-form .warning-notfound {
+  text-align: right;
+  color: red;
+}
+
 .container-form .search-notes {
   display: flex;
   justify-content: space-between;

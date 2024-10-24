@@ -12,6 +12,7 @@ class App extends React.Component {
     this.state = {
       notes: getInitialData(),
       searchNotes: [],
+      warningNotFound: "",
     };
   }
 
@@ -56,11 +57,13 @@ class App extends React.Component {
 
       this.setState({
         searchNotes: filteredNotes.length > 0 ? filteredNotes : [],
+        warningNotFound:
+          filteredNotes.length === 0 ? "*Catatan Tidak Ditemukan" : "",
       });
       return;
     }
 
-    this.setState({ searchNotes: [] });
+    this.setState({ searchNotes: [], warningNotFound: "" });
   };
 
   render() {
@@ -69,6 +72,7 @@ class App extends React.Component {
         <FormComponent
           addNotes={this.onAddNotesHandle}
           onSearchNotes={this.onSearchNotes}
+          warningNotFound={this.state.warningNotFound}
         />
         <NotesList
           notes={
