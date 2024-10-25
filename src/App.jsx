@@ -26,7 +26,7 @@ class App extends React.Component {
             title,
             body,
             archived: false,
-            createdAt: +new Date(),
+            createdAt: new Date().toISOString(),
           },
         ],
       };
@@ -51,14 +51,11 @@ class App extends React.Component {
 
   onSearchNotes = (title) => {
     if (title.length != 0) {
-      const filteredNotes = this.state.notes.filter((note) =>
-        note.title.toLowerCase().startsWith(title.toLowerCase())
-      );
+      const filteredNotes = this.state.notes.filter((note) => note.title.toLowerCase().startsWith(title.toLowerCase()));
 
       this.setState({
         searchNotes: filteredNotes.length > 0 ? filteredNotes : [],
-        warningNotFound:
-          filteredNotes.length === 0 ? "*Catatan Tidak Ditemukan" : "",
+        warningNotFound: filteredNotes.length === 0 ? "*Catatan Tidak Ditemukan" : "",
       });
       return;
     }
@@ -69,20 +66,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <FormComponent
-          addNotes={this.onAddNotesHandle}
-          onSearchNotes={this.onSearchNotes}
-          warningNotFound={this.state.warningNotFound}
-        />
-        <NotesList
-          notes={
-            this.state.searchNotes.length != 0
-              ? this.state.searchNotes
-              : this.state.notes
-          }
-          onDelete={this.onDeleteNotesHandler}
-          onArchive={this.onArchiveNotesHandler}
-        />
+        <FormComponent addNotes={this.onAddNotesHandle} onSearchNotes={this.onSearchNotes} warningNotFound={this.state.warningNotFound} />
+        <NotesList notes={this.state.searchNotes.length != 0 ? this.state.searchNotes : this.state.notes} onDelete={this.onDeleteNotesHandler} onArchive={this.onArchiveNotesHandler} />
         <Footer />
       </>
     );
