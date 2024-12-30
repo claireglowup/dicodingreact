@@ -2,6 +2,7 @@
 
 import "../styles/footer.css";
 
+// footer will be use everywhere
 const Footer = () => {
   return (
     <footer className="footer">
