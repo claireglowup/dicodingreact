@@ -6,7 +6,7 @@ import "../styles/footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <p> © 2024. All Rights Reserved</p>
+      <p> © 2025. All Rights Reserved</p>
     </footer>
   );
 };
